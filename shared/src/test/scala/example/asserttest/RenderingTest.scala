@@ -30,56 +30,29 @@ object RenderingTest extends BasicTestSuite {
   }
 
   test("List.apply") {
-    if (isDotty) {
-      outputs("""assertion failed
+    outputs("""assertion failed
 
 List() == List(1, 2)
 |      |  |
 List() |  List(1, 2)
        false
-    """) {
-        assert {
-          List() == List(1, 2)
-        }
-      }
-    } else {
-      outputs("""assertion failed
-
-List() == List(1, 2)
-       |  |
-       |  List(1, 2)
-       false
-    """) {
-        assert {
-          List() == List(1, 2)
-        }
+  """) {
+      assert {
+        List() == List(1, 2)
       }
     }
   }
 
   test("List.apply2") {
-    if (isDotty) {
-      outputs("""assertion failed
+    outputs("""assertion failed
 
 List(1, 2) == List()
 |          |  |
 List(1, 2) |  List()
            false
-    """) {
-        assert {
-          List(1, 2) == List()
-        }
-      }
-    } else {
-      outputs("""assertion failed
-
-List(1, 2) == List()
-|          |
-List(1, 2) false
-    """) {
-        assert {
-          List(1, 2) == List()
-        }
+  """) {
+      assert {
+        List(1, 2) == List()
       }
     }
   }
